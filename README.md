@@ -21,7 +21,7 @@ pet adoption app
 - [] It should be able to list all pets available for adoption in a city;
 - [] It should be able to filter pets by their characteristics;
 - [] It should be able to view details of a pet up for adoption;
-- [] It should be able to register as an ORG, with the following data:
+- [x] It should be able to register as an ORG, with the following data:
   - name of person responsible;
   - email
   - CEP
@@ -38,9 +38,9 @@ pet adoption app
 - [] A pet must be linked to an ORG;
 - [] All filters, excluding city, must be optionals;
 - [] For an ORG to access the application as admin, it must be logged.
-- [] The user shouldn't be able to register with a email that already exists;
+- [x] The user shouldn't be able to register with a email that already exists;
 
 
 ## Non-functional Requirements
-- [] ORG password must be encrypted;
+- [x] ORG password must be encrypted;
 - [] ORG must be identified by a JWT;
