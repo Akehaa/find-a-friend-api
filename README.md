@@ -18,7 +18,8 @@ pet adoption app
   - breed;
   - size;
   - pictures;
-- [] It should be able to list all pets available for adoption in a city;
+- [] It should be able to list all pets available for adoption by city;
+- [] It should be able to list all pets available for adoption by org;
 - [] It should be able to filter pets by their characteristics;
 - [] It should be able to view details of a pet up for adoption;
 - [x] It should be able to register as an ORG, with the following data:
@@ -44,3 +45,4 @@ pet adoption app
 ## Non-functional Requirements
 - [x] ORG password must be encrypted;
 - [] ORG must be identified by a JWT;
+- [] All data lists must be paginated with 20 items per page;
