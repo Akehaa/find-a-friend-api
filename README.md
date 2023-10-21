@@ -10,7 +10,7 @@
 pet adoption app
 
 ## Functional Requirements
-- [] It should be able to register a pet, with the following data:
+- [x] It should be able to register a pet, with the following data:
   - name;
   - about;
   - age;
@@ -35,7 +35,7 @@ pet adoption app
 
 ## Business Requirements
 - [] To list the pets, a city must be informed;
-- [] An ORG must have an address and a WhatsApp number;
+- [x] An ORG must have an address and a WhatsApp number;
 - [] A pet must be linked to an ORG;
 - [] All filters, excluding city, must be optionals;
 - [] For an ORG to access the application as admin, it must be logged.
@@ -45,4 +45,4 @@ pet adoption app
 ## Non-functional Requirements
 - [x] ORG password must be encrypted;
 - [] ORG must be identified by a JWT;
-- [] All data lists must be paginated with 20 items per page;
+- [x] All data lists must be paginated with 20 items per page;
