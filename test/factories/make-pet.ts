@@ -1,13 +1,3 @@
-// orgId: UniqueEntityId;
-// orgCity: string;
-// name: string;
-// about: string;
-// age: number;
-// weight: number;
-// breed: string;
-// size: string;
-// attachments: PetAttachmentList;
-
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
 import { Pet, PetProps } from '@/domain/main/enterprise/entities/pet';
 import { faker } from '@faker-js/faker';

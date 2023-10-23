@@ -17,32 +17,32 @@ pet adoption app
   - weight;
   - breed;
   - size;
-  - pictures;
-- [] It should be able to list all pets available for adoption by city;
-- [] It should be able to list all pets available for adoption by org;
+  - pictures.
+- [x] It should be able to list all pets available for adoption by city;
+- [x] It should be able to list all pets available for adoption by org;
 - [] It should be able to filter pets by their characteristics;
 - [] It should be able to view details of a pet up for adoption;
 - [x] It should be able to register as an ORG, with the following data:
   - name of person responsible;
-  - email
-  - CEP
-  - address
-  - whatsapp
-  - password
+  - email;
+  - CEP;
+  - address;
+  - whatsapp;
+  - password.
 - [] It should be able to login as an ORG;
 - [] It should be able to authenticate as an ORG.
 
 
 ## Business Requirements
-- [] To list the pets, a city must be informed;
+- [x] To list the pets, a city or an org must be informed;
 - [x] An ORG must have an address and a WhatsApp number;
 - [] A pet must be linked to an ORG;
-- [] All filters, excluding city, must be optionals;
-- [] For an ORG to access the application as admin, it must be logged.
-- [x] The user shouldn't be able to register with a email that already exists;
+- [x] All filters, excluding city and/or org, must be optionals;
+- [] For an ORG to access the application as admin, it must be logged;
+- [x] The user shouldn't be able to register with a email that already exists.
 
 
 ## Non-functional Requirements
 - [x] ORG password must be encrypted;
 - [] ORG must be identified by a JWT;
-- [x] All data lists must be paginated with 20 items per page;
+- [x] All data lists must be paginated with 20 items per page.
