@@ -28,6 +28,11 @@ export abstract class PetsRepository {
     breed?: string,
   ): Promise<Pet[]>;
 
+  abstract findManyBySize(
+    params: PaginationParams,
+    size?: string,
+  ): Promise<Pet[]>;
+
   abstract create(pet: Pet): Promise<void>;
   abstract save(pet: Pet): Promise<void>;
   abstract delete(pet: Pet): Promise<void>;

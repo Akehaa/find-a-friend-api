@@ -59,6 +59,14 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pets;
   }
 
+  async findManyBySize({ page }: PaginationParams, size?: string) {
+    const pets = this.items
+      .filter((item) => item.size === size)
+      .slice((page - 1) * 20, page * 20);
+
+    return pets;
+  }
+
   async create(pet: Pet) {
     this.items.push(pet);
 
