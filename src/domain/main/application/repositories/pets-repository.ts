@@ -18,6 +18,11 @@ export abstract class PetsRepository {
     age?: number,
   ): Promise<Pet[]>;
 
+  abstract findManyByWeight(
+    params: PaginationParams,
+    weight?: number,
+  ): Promise<Pet[]>;
+
   abstract create(pet: Pet): Promise<void>;
   abstract save(pet: Pet): Promise<void>;
   abstract delete(pet: Pet): Promise<void>;

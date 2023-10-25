@@ -1,40 +1,40 @@
 import { InMemoryPetAttachmentsRepository } from 'test/repositories/in-memory-pet-attachments-repository';
 import { InMemoryPetsRepository } from 'test/repositories/in-memory-pets-repository';
-import { FetchPetsByAgeUseCase } from './fetch-pets-by-age';
+import { FetchPetsByWeightUseCase } from './fetch-pets-by-weight';
 import { makePet } from 'test/factories/make-pet';
 
 let inMemoryPetAttachmentsRepository: InMemoryPetAttachmentsRepository;
 let inMemoryPetsRepository: InMemoryPetsRepository;
-let sut: FetchPetsByAgeUseCase;
+let sut: FetchPetsByWeightUseCase;
 
-describe('Fetch Pets By Age', () => {
+describe('Fetch Pets By Weight', () => {
   beforeEach(() => {
     inMemoryPetAttachmentsRepository = new InMemoryPetAttachmentsRepository();
     inMemoryPetsRepository = new InMemoryPetsRepository(
       inMemoryPetAttachmentsRepository,
     );
-    sut = new FetchPetsByAgeUseCase(inMemoryPetsRepository);
+    sut = new FetchPetsByWeightUseCase(inMemoryPetsRepository);
   });
 
-  it('should be able to fetch pets by age', async () => {
+  it('should be able to fetch pets by weight', async () => {
     await inMemoryPetsRepository.create(
       makePet({
-        age: 4,
+        weight: 8,
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        age: 8,
+        weight: 15,
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        age: 4,
+        weight: 8,
       }),
     );
 
     const result = await sut.execute({
-      age: 4,
+      weight: 8,
       page: 1,
     });
 
