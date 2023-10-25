@@ -20,8 +20,8 @@ pet adoption app
   - pictures.
 - [x] It should be able to list all pets available for adoption by city;
 - [x] It should be able to list all pets available for adoption by org;
-- [] It should be able to filter pets by their characteristics;
-- [] It should be able to view details of a pet up for adoption;
+- [x] It should be able to filter pets by their characteristics;
+- [x] It should be able to view details of a pet up for adoption;
 - [x] It should be able to register as an ORG, with the following data:
   - name of person responsible;
   - email;
