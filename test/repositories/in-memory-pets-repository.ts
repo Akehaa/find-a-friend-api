@@ -35,6 +35,14 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pets;
   }
 
+  async findManyByName({ page }: PaginationParams, name?: string) {
+    const pets = this.items
+      .filter((item) => item.name === name)
+      .slice((page - 1) * 20, page * 20);
+
+    return pets;
+  }
+
   async findManyByAge({ page }: PaginationParams, age?: number) {
     const pets = this.items
       .filter((item) => item.age === age)
