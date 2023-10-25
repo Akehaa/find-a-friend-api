@@ -7,9 +7,15 @@ export abstract class PetsRepository {
     orgId: string,
     params: PaginationParams,
   ): Promise<Pet[]>;
+
   abstract findManyByOrgCity(
     orgCity: string,
     params: PaginationParams,
+  ): Promise<Pet[]>;
+
+  abstract findManyByAge(
+    params: PaginationParams,
+    age?: number,
   ): Promise<Pet[]>;
 
   abstract create(pet: Pet): Promise<void>;
