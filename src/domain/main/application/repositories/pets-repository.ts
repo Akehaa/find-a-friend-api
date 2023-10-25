@@ -23,6 +23,11 @@ export abstract class PetsRepository {
     weight?: number,
   ): Promise<Pet[]>;
 
+  abstract findManyByBreed(
+    params: PaginationParams,
+    breed?: string,
+  ): Promise<Pet[]>;
+
   abstract create(pet: Pet): Promise<void>;
   abstract save(pet: Pet): Promise<void>;
   abstract delete(pet: Pet): Promise<void>;
