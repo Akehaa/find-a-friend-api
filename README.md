@@ -29,8 +29,7 @@ pet adoption app
   - address;
   - whatsapp;
   - password.
-- [] It should be able to login as an ORG;
-- [] It should be able to authenticate as an ORG.
+- [x] It should be able to login as an ORG;
 
 
 ## Business Requirements
