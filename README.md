@@ -19,7 +19,7 @@ pet adoption app
   - size;
   - pictures.
   - [x] It should be able to edit a pet, being able to change all the data above;
-- [] It should be able to delete a pet;
+- [x] It should be able to delete a pet;
 - [x] It should be able to list all pets available for adoption by city;
 - [x] It should be able to list all pets available for adoption by ORG;
 - [x] It should be able to filter pets by their characteristics;
@@ -42,7 +42,7 @@ pet adoption app
 - [] For an ORG to access the application as admin, it must be logged;
 - [x] An ORG should not be able to register with a email that already exists.
 - [x] An ORG should only edit pets that it created;
-- [] An ORG should only delete pets that it created;
+- [x] An ORG should only delete pets that it created;
 
 
 ## Non-functional Requirements
