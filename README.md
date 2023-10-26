@@ -18,8 +18,10 @@ pet adoption app
   - breed;
   - size;
   - pictures.
+  - [x] It should be able to edit a pet, being able to change all the data above;
+- [] It should be able to delete a pet;
 - [x] It should be able to list all pets available for adoption by city;
-- [x] It should be able to list all pets available for adoption by org;
+- [x] It should be able to list all pets available for adoption by ORG;
 - [x] It should be able to filter pets by their characteristics;
 - [x] It should be able to view details of a pet up for adoption;
 - [x] It should be able to register as an ORG, with the following data:
@@ -33,12 +35,14 @@ pet adoption app
 
 
 ## Business Requirements
-- [x] To list the pets, a city or an org must be informed;
+- [x] To list the pets, a city or an ORG must be informed;
 - [x] An ORG must have an address and a WhatsApp number;
 - [] A pet must be linked to an ORG;
-- [x] All filters, excluding city and/or org, must be optionals;
+- [x] All filters, excluding city and/or ORG, must be optionals;
 - [] For an ORG to access the application as admin, it must be logged;
-- [x] The user shouldn't be able to register with a email that already exists.
+- [x] An ORG should not be able to register with a email that already exists.
+- [x] An ORG should only edit pets that it created;
+- [] An ORG should only delete pets that it created;
 
 
 ## Non-functional Requirements

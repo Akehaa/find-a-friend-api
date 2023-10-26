@@ -28,32 +28,52 @@ export class Pet extends AggregateRoot<PetProps> {
     return this.props.name;
   }
 
+  set name(name: string) {
+    this.props.name = name;
+  }
+
   get about() {
     return this.props.about;
+  }
+
+  set about(about: string) {
+    this.props.about = about;
   }
 
   get age() {
     return this.props.age;
   }
 
+  set age(age: number) {
+    this.props.age = age;
+  }
+
   get weight() {
     return this.props.weight;
+  }
+
+  set weight(weight: number) {
+    this.props.weight = weight;
   }
 
   get breed() {
     return this.props.breed;
   }
 
+  set breed(breed: string) {
+    this.props.breed = breed;
+  }
+
   get size() {
     return this.props.size;
   }
 
-  get attachments() {
-    return this.props.attachments;
+  set size(size: string) {
+    this.props.size = size;
   }
 
-  set about(about: string) {
-    this.props.about = about;
+  get attachments() {
+    return this.props.attachments;
   }
 
   set attachments(attachments: PetAttachmentList) {

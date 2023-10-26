@@ -1,7 +1,7 @@
 import { Either, left, right } from '@/core/either';
 import { Pet } from '../../enterprise/entities/pet';
 import { PetsRepository } from '../repositories/pets-repository';
-import { ResourceNotFoundError } from './errors/resource-not-found-error';
+import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found-error';
 
 interface GetPetInfoUseCaseRequest {
   petId: string;

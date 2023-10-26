@@ -3,7 +3,7 @@ import { FakeHasher } from 'test/cryptography/fake-hasher';
 import { InMemoryOrgsRepository } from 'test/repositories/in-memory-orgs-repository';
 import { AuthenticateOrgUseCase } from './authenticate-org';
 import { makeOrg } from 'test/factories/make-org';
-import { WrongCredentialsError } from './errors/wrong-credentials-error';
+import { WrongCredentialsError } from '../../../../core/errors/errors/wrong-credentials-error';
 
 let inMemoryOrgsRepository: InMemoryOrgsRepository;
 let fakeHasher: FakeHasher;

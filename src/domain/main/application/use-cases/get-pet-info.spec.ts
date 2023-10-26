@@ -3,7 +3,7 @@ import { InMemoryPetsRepository } from 'test/repositories/in-memory-pets-reposit
 import { GetPetInfoUseCase } from './get-pet-info';
 import { makePet } from 'test/factories/make-pet';
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
-import { ResourceNotFoundError } from './errors/resource-not-found-error';
+import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found-error';
 
 let inMemoryPetsRepository: InMemoryPetsRepository;
 let inMemoryPetAttachmentsRepository: InMemoryPetAttachmentsRepository;

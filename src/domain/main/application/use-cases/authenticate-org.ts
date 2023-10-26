@@ -2,7 +2,7 @@ import { Either, left, right } from '@/core/either';
 import { Encrypter } from '../cryptography/encrypter';
 import { HashComparer } from '../cryptography/hash-comparer';
 import { OrgsRepository } from '../repositories/orgs-repository';
-import { WrongCredentialsError } from './errors/wrong-credentials-error';
+import { WrongCredentialsError } from '../../../../core/errors/errors/wrong-credentials-error';
 
 interface AuthenticateOrgUseCaseRequest {
   email: string;
