@@ -3,6 +3,7 @@ import { Encrypter } from '../cryptography/encrypter';
 import { HashComparer } from '../cryptography/hash-comparer';
 import { OrgsRepository } from '../repositories/orgs-repository';
 import { WrongCredentialsError } from '../../../../core/errors/errors/wrong-credentials-error';
+import { Injectable } from '@nestjs/common';
 
 interface AuthenticateOrgUseCaseRequest {
   email: string;
@@ -16,6 +17,7 @@ type AuthenticateOrgUseCaseResponse = Either<
   }
 >;
 
+@Injectable()
 export class AuthenticateOrgUseCase {
   constructor(
     private orgsRepository: OrgsRepository,

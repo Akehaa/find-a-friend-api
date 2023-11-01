@@ -7,6 +7,7 @@ import { PetAttachmentsRepository } from '../repositories/pet-attachments-reposi
 import { PetAttachmentList } from '../../enterprise/entities/pet-attachment-list';
 import { PetAttachment } from '../../enterprise/entities/pet-attachment';
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
+import { Injectable } from '@nestjs/common';
 
 interface EditPetUseCaseRequest {
   orgId: string;
@@ -26,7 +27,7 @@ type EditPetUseCaseResponse = Either<
     pet: Pet;
   }
 >;
-
+@Injectable()
 export class EditPetUseCase {
   constructor(
     private petsRepository: PetsRepository,

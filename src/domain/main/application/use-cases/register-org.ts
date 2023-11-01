@@ -3,6 +3,7 @@ import { OrgAlreadyExistsError } from './errors/org-already-exists-error';
 import { Org } from '../../enterprise/entities/org';
 import { OrgsRepository } from '../repositories/orgs-repository';
 import { HashGenerator } from '../cryptography/hash-generator';
+import { Injectable } from '@nestjs/common';
 
 interface RegisterOrgUseCaseRequest {
   nameOfPersonResponsible: string;
@@ -19,7 +20,7 @@ type RegisterOrgUseCaseResponse = Either<
     org: Org;
   }
 >;
-
+@Injectable()
 export class RegisterOrgUseCase {
   constructor(
     private orgsRepository: OrgsRepository,
