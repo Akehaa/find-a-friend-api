@@ -18,7 +18,7 @@ pet adoption app
   - breed;
   - size;
   - pictures.
-  - [x] It should be able to edit a pet, being able to change all the data above;
+- [x] It should be able to edit a pet, being able to change all the data above;
 - [x] It should be able to delete a pet;
 - [x] It should be able to list all pets available for adoption by city;
 - [x] It should be able to list all pets available for adoption by ORG;
@@ -47,5 +47,5 @@ pet adoption app
 
 ## Non-functional Requirements
 - [x] ORG password must be encrypted;
-- [] ORG must be identified by a JWT;
+- [x] ORG must be identified by a JWT;
 - [x] All data lists must be paginated with 20 items per page.
