@@ -1,0 +1,27 @@
+@baseUrl=http://localhost:3000
+
+# @name create_account
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+  "nameOfPersonResponsible": "Dener Araujo",
+  "email": "dener@example.com",
+  "cep": "123",
+  "address": "test street",
+  "whatsapp": "4321",
+  "password": "123456"
+}
+
+###
+
+# @name authenticate
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+  "email":"dener@example.com",
+  "password":"123456"
+}
+
+###
