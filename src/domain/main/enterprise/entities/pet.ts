@@ -5,7 +5,7 @@ import { Optional } from '@/core/types/optional';
 
 export interface PetProps {
   orgId: UniqueEntityId;
-  orgCity: string;
+  city: string;
   name: string;
   about: string;
   age: number;
@@ -20,16 +20,20 @@ export class Pet extends AggregateRoot<PetProps> {
     return this.props.orgId;
   }
 
-  get orgCity() {
-    return this.props.orgCity;
-  }
-
   get name() {
     return this.props.name;
   }
 
   set name(name: string) {
     this.props.name = name;
+  }
+
+  get city() {
+    return this.props.city;
+  }
+
+  set city(city: string) {
+    this.props.city = city;
   }
 
   get about() {

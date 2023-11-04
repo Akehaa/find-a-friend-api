@@ -8,6 +8,7 @@ import { Injectable } from '@nestjs/common';
 interface RegisterOrgUseCaseRequest {
   nameOfPersonResponsible: string;
   email: string;
+  city: string;
   cep: string;
   address: string;
   whatsapp: string;
@@ -30,6 +31,7 @@ export class RegisterOrgUseCase {
   async execute({
     nameOfPersonResponsible,
     email,
+    city,
     cep,
     address,
     whatsapp,
@@ -46,6 +48,7 @@ export class RegisterOrgUseCase {
     const org = Org.create({
       nameOfPersonResponsible,
       email,
+      city,
       cep,
       address,
       whatsapp,

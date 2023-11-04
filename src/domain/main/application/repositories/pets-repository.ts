@@ -8,8 +8,8 @@ export abstract class PetsRepository {
     params: PaginationParams,
   ): Promise<Pet[]>;
 
-  abstract findManyByOrgCity(
-    orgCity: string,
+  abstract findManyByCity(
+    city: string,
     params: PaginationParams,
   ): Promise<Pet[]>;
 

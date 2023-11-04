@@ -1,0 +1,152 @@
+import { PetsRepository } from '@/domain/main/application/repositories/pets-repository';
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma.service';
+import { Pet } from '@/domain/main/enterprise/entities/pet';
+import { PrismaPetMapper } from '../mappers/prisma-pet-mapper';
+import { PaginationParams } from '@/core/repositories/pagination-params';
+
+@Injectable()
+export class PrismaPetsRepository implements PetsRepository {
+  constructor(private prisma: PrismaService) {}
+
+  async findById(id: string): Promise<Pet | null> {
+    const pet = await this.prisma.pet.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!pet) {
+      null;
+    }
+
+    return PrismaPetMapper.toDomain(pet);
+  }
+
+  async findManyByOrgId(
+    orgId: string,
+    { page }: PaginationParams,
+  ): Promise<Pet[]> {
+    const pets = await this.prisma.pet.findMany({
+      where: {
+        orgId,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    });
+    return pets.map(PrismaPetMapper.toDomain);
+  }
+
+  async findManyByCity(
+    city: string,
+    { page }: PaginationParams,
+  ): Promise<Pet[]> {
+    const pets = await this.prisma.pet.findMany({
+      where: {
+        city,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    });
+    return pets.map(PrismaPetMapper.toDomain);
+  }
+
+  async findManyByName(
+    { page }: PaginationParams,
+    name?: string,
+  ): Promise<Pet[]> {
+    const pets = await this.prisma.pet.findMany({
+      where: {
+        name,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    });
+    return pets.map(PrismaPetMapper.toDomain);
+  }
+
+  async findManyByAge(
+    { page }: PaginationParams,
+    age?: number,
+  ): Promise<Pet[]> {
+    const pets = await this.prisma.pet.findMany({
+      where: {
+        age,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    });
+    return pets.map(PrismaPetMapper.toDomain);
+  }
+
+  async findManyByWeight(
+    { page }: PaginationParams,
+    weight?: number,
+  ): Promise<Pet[]> {
+    const pets = await this.prisma.pet.findMany({
+      where: {
+        weight,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    });
+    return pets.map(PrismaPetMapper.toDomain);
+  }
+
+  async findManyByBreed(
+    { page }: PaginationParams,
+    breed?: string,
+  ): Promise<Pet[]> {
+    const pets = await this.prisma.pet.findMany({
+      where: {
+        breed,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    });
+    return pets.map(PrismaPetMapper.toDomain);
+  }
+
+  async findManyBySize(
+    { page }: PaginationParams,
+    size?: string,
+  ): Promise<Pet[]> {
+    const pets = await this.prisma.pet.findMany({
+      where: {
+        size,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    });
+    return pets.map(PrismaPetMapper.toDomain);
+  }
+
+  async create(pet: Pet): Promise<void> {
+    const data = PrismaPetMapper.toPrisma(pet);
+
+    await this.prisma.pet.create({
+      data,
+    });
+  }
+
+  async save(pet: Pet): Promise<void> {
+    const data = PrismaPetMapper.toPrisma(pet);
+
+    await this.prisma.pet.update({
+      where: {
+        id: pet.id.toString(),
+      },
+      data,
+    });
+  }
+
+  async delete(pet: Pet): Promise<void> {
+    const data = PrismaPetMapper.toPrisma(pet);
+
+    await this.prisma.pet.delete({
+      where: {
+        id: data.id,
+      },
+    });
+  }
+}

@@ -16,6 +16,7 @@ import { OrgAlreadyExistsError } from '@/domain/main/application/use-cases/error
 const createAccountBodySchema = z.object({
   nameOfPersonResponsible: z.string(),
   email: z.string().email(),
+  city: z.string(),
   cep: z.string(),
   address: z.string(),
   whatsapp: z.string(),
@@ -33,12 +34,20 @@ export class CreateAccountController {
   @HttpCode(201)
   @UsePipes(new ZodValidationPipe(createAccountBodySchema))
   async handle(@Body() body: CreateAccountBodySchema) {
-    const { nameOfPersonResponsible, email, cep, address, whatsapp, password } =
-      body;
+    const {
+      nameOfPersonResponsible,
+      email,
+      city,
+      cep,
+      address,
+      whatsapp,
+      password,
+    } = body;
 
     const result = await this.registerOrg.execute({
       nameOfPersonResponsible,
       email,
+      city,
       cep,
       address,
       whatsapp,

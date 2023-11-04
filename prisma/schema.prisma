@@ -14,6 +14,7 @@ model Org {
   id                      String @id @default(uuid())
   nameOfPersonResponsible String @map("name_of_person_responsible")
   email                   String @unique
+  city                    String
   cep                     String
   address                 String
   whatsapp                String
@@ -24,17 +25,29 @@ model Org {
 }
 
 model Pet {
-  id      String @id @default(uuid())
-  name    String
-  about   String
-  age     Float
-  weight  Float
-  breed   String
-  size    String
-  orgId   String @map("org_id")
-  orgCity String @map("org_city")
+  id     String @id @default(uuid())
+  name   String
+  city   String
+  about  String
+  age    Float
+  weight Float
+  breed  String
+  size   String
+  orgId  String @map("org_id")
 
-  org Org @relation(fields: [orgId], references: [id])
+  org        Org          @relation(fields: [orgId], references: [id])
+  Attachment Attachment[]
 
   @@map("pets")
+}
+
+model Attachment {
+  id    String  @id @default(uuid())
+  title String
+  url   String
+  petId String? @map("pet_id")
+
+  pet Pet? @relation(fields: [petId], references: [id])
+
+  @@map("attachments")
 }

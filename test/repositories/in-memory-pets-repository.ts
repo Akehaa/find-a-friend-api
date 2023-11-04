@@ -27,9 +27,9 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pets;
   }
 
-  async findManyByOrgCity(orgCity: string, { page }: PaginationParams) {
+  async findManyByCity(city: string, { page }: PaginationParams) {
     const pets = this.items
-      .filter((item) => item.orgCity === orgCity)
+      .filter((item) => item.city === city)
       .slice((page - 1) * 20, page * 20);
 
     return pets;

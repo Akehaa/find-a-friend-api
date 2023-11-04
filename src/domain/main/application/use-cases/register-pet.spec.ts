@@ -20,7 +20,7 @@ describe('Register Pet', () => {
   it('Should be able to register a pet', async () => {
     const result = await sut.execute({
       orgId: '1',
-      orgCity: 'Test city',
+      city: 'Test city',
       name: 'Test name',
       about: 'Test about',
       age: 20,

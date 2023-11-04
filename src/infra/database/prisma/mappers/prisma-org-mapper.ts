@@ -8,6 +8,7 @@ export class PrismaOrgMapper {
       {
         nameOfPersonResponsible: raw.nameOfPersonResponsible,
         email: raw.email,
+        city: raw.city,
         cep: raw.cep,
         address: raw.address,
         whatsapp: raw.whatsapp,
@@ -22,6 +23,7 @@ export class PrismaOrgMapper {
       id: org.id.toString(),
       nameOfPersonResponsible: org.nameOfPersonResponsible,
       email: org.email,
+      city: org.city,
       cep: org.cep,
       address: org.address,
       whatsapp: org.whatsapp,

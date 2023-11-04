@@ -23,6 +23,7 @@ describe('Create Account (E2E)', () => {
     const response = await request(app.getHttpServer()).post('/accounts').send({
       nameOfPersonResponsible: 'John Doe',
       email: 'johndoe@example.com',
+      city: 'test city',
       cep: '123456789',
       address: 'test address',
       whatsapp: '123456789',

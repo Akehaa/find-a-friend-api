@@ -19,22 +19,22 @@ describe('Fetch Pets By City', () => {
   it('should be able to fetch pets by city', async () => {
     await inMemoryPetsRepository.create(
       makePet({
-        orgCity: 'city-01',
+        city: 'city-01',
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        orgCity: 'city-01',
+        city: 'city-01',
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        orgCity: 'city-03',
+        city: 'city-03',
       }),
     );
 
     const result = await sut.execute({
-      orgCity: 'city-01',
+      city: 'city-01',
       page: 1,
     });
 
@@ -45,13 +45,13 @@ describe('Fetch Pets By City', () => {
     for (let i = 1; i <= 23; i++) {
       await inMemoryPetsRepository.create(
         makePet({
-          orgCity: 'city-01',
+          city: 'city-01',
         }),
       );
     }
 
     const result = await sut.execute({
-      orgCity: 'city-01',
+      city: 'city-01',
       page: 2,
     });
 

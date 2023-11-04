@@ -4,7 +4,7 @@ import { PetsRepository } from '../repositories/pets-repository';
 import { Injectable } from '@nestjs/common';
 
 interface FechPetsByCityUseCaseRequest {
-  orgCity: string;
+  city: string;
   page: number;
 }
 
@@ -19,10 +19,10 @@ export class FetchPetsByCityUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
   async execute({
-    orgCity,
+    city,
     page,
   }: FechPetsByCityUseCaseRequest): Promise<FechPetsByCityUseCaseResponse> {
-    const pets = await this.petsRepository.findManyByOrgCity(orgCity, {
+    const pets = await this.petsRepository.findManyByCity(city, {
       page,
     });
 

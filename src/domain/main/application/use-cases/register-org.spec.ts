@@ -19,6 +19,7 @@ describe('Register Org', () => {
     const result = await sut.execute({
       nameOfPersonResponsible: 'John Doe',
       email: 'Johndoe@example.com',
+      city: 'test city',
       cep: '123',
       address: 'test street',
       whatsapp: '1234',
@@ -35,6 +36,7 @@ describe('Register Org', () => {
     const result = await sut.execute({
       nameOfPersonResponsible: 'John Doe',
       email: 'Johndoe@example.com',
+      city: 'test city',
       cep: '123',
       address: 'test street',
       whatsapp: '1234',

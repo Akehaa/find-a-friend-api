@@ -8,7 +8,7 @@ import { Injectable } from '@nestjs/common';
 
 interface RegisterPetUseCaseRequest {
   orgId: string;
-  orgCity: string;
+  city: string;
   name: string;
   about: string;
   age: number;
@@ -30,7 +30,7 @@ export class RegisterPetUseCase {
 
   async execute({
     orgId,
-    orgCity,
+    city,
     name,
     about,
     age,
@@ -41,7 +41,7 @@ export class RegisterPetUseCase {
   }: RegisterPetUseCaseRequest): Promise<RegisterPetUseCaseResponse> {
     const pet = Pet.create({
       orgId: new UniqueEntityId(orgId),
-      orgCity: orgCity,
+      city,
       name,
       about,
       age,
