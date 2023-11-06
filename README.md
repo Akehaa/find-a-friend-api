@@ -39,7 +39,7 @@ pet adoption app
 - [x] An ORG must have an address and a WhatsApp number;
 - [x] A pet must be linked to an ORG;
 - [x] All filters, excluding city and/or ORG, must be optionals;
-- [] For an ORG to access the application as admin, it must be logged;
+- [x] For an ORG to access the application as admin, it must be logged;
 - [x] An ORG should not be able to register with a email that already exists.
 - [x] An ORG should only edit pets that it created;
 - [x] An ORG should only delete pets that it created;
