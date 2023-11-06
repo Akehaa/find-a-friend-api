@@ -13,6 +13,7 @@ interface EditPetUseCaseRequest {
   orgId: string;
   petId: string;
   name: string;
+  city: string;
   about: string;
   age: number;
   weight: number;
@@ -38,6 +39,7 @@ export class EditPetUseCase {
     orgId,
     petId,
     name,
+    city,
     about,
     age,
     weight,
@@ -70,6 +72,7 @@ export class EditPetUseCase {
     petAttachmentList.update(petAttachments);
 
     pet.name = name;
+    pet.city = city;
     pet.about = about;
     pet.age = age;
     pet.weight = weight;

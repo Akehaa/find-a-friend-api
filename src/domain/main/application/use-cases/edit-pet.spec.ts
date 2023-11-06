@@ -48,6 +48,7 @@ describe('Edit Pet', () => {
       orgId: 'org-01',
       petId: newPet.id.toValue(),
       name: 'Test name',
+      city: 'Test city',
       about: 'Test about',
       age: 5,
       weight: 10,
@@ -58,6 +59,7 @@ describe('Edit Pet', () => {
 
     expect(inMemoryPetsRepository.items[0]).toMatchObject({
       name: 'Test name',
+      city: 'Test city',
       about: 'Test about',
       age: 5,
       weight: 10,
@@ -88,6 +90,7 @@ describe('Edit Pet', () => {
       orgId: 'org-02',
       petId: newPet.id.toValue(),
       name: 'Test name',
+      city: 'Test city',
       about: 'Test about',
       age: 5,
       weight: 10,

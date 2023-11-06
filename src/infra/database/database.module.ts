@@ -4,6 +4,8 @@ import { OrgsRepository } from '@/domain/main/application/repositories/orgs-repo
 import { PrismaOrgsRepository } from './prisma/repositories/prisma-orgs-repository';
 import { PetsRepository } from '@/domain/main/application/repositories/pets-repository';
 import { PrismaPetsRepository } from './prisma/repositories/prisma-pets-repository';
+import { PetAttachmentsRepository } from '@/domain/main/application/repositories/pet-attachments-repository';
+import { PrismaPetAttachmentsRepository } from './prisma/repositories/prisma-pet-attachments-repository';
 @Module({
   providers: [
     PrismaService,
@@ -15,7 +17,16 @@ import { PrismaPetsRepository } from './prisma/repositories/prisma-pets-reposito
       provide: PetsRepository,
       useClass: PrismaPetsRepository,
     },
+    {
+      provide: PetAttachmentsRepository,
+      useClass: PrismaPetAttachmentsRepository,
+    },
   ],
-  exports: [PrismaService, OrgsRepository, PetsRepository],
+  exports: [
+    PrismaService,
+    OrgsRepository,
+    PetsRepository,
+    PetAttachmentsRepository,
+  ],
 })
 export class DatabaseModule {}

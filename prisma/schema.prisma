@@ -29,7 +29,7 @@ model Pet {
   name   String
   city   String
   about  String
-  age    Float
+  age    Int
   weight Float
   breed  String
   size   String
