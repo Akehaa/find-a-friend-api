@@ -9,6 +9,8 @@ import { RegisterPetController } from './controllers/register-pet.controller';
 import { RegisterPetUseCase } from '@/domain/main/application/use-cases/register-pet';
 import { EditPetController } from './controllers/edit-pet.controller';
 import { EditPetUseCase } from '@/domain/main/application/use-cases/edit-pet';
+import { DeletePetController } from './controllers/delete-pet-controller';
+import { DeletePetUseCase } from '@/domain/main/application/use-cases/delete-pet';
 @Module({
   imports: [DatabaseModule, CryptographyModule],
   controllers: [
@@ -16,12 +18,14 @@ import { EditPetUseCase } from '@/domain/main/application/use-cases/edit-pet';
     AuthenticateController,
     RegisterPetController,
     EditPetController,
+    DeletePetController,
   ],
   providers: [
     RegisterOrgUseCase,
     AuthenticateOrgUseCase,
     RegisterPetUseCase,
     EditPetUseCase,
+    DeletePetUseCase,
   ],
 })
 export class HttpModule {}
