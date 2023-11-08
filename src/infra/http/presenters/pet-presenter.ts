@@ -1,4 +1,4 @@
-import { Pet } from '@prisma/client';
+import { Pet } from '@/domain/main/enterprise/entities/pet';
 
 export class PetPresenter {
   static toHTTP(pet: Pet) {
