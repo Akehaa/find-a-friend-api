@@ -13,6 +13,8 @@ import { DeletePetController } from './controllers/delete-pet.controller';
 import { DeletePetUseCase } from '@/domain/main/application/use-cases/delete-pet';
 import { GetPetInfoController } from './controllers/get-pet-info.controller';
 import { GetPetInfoUseCase } from '@/domain/main/application/use-cases/get-pet-info';
+import { FetchPetsByNameController } from './controllers/fetch-pets-by-name.controller';
+import { FetchPetsByNameUseCase } from '@/domain/main/application/use-cases/fetch-pets-by-name';
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -23,6 +25,7 @@ import { GetPetInfoUseCase } from '@/domain/main/application/use-cases/get-pet-i
     EditPetController,
     DeletePetController,
     GetPetInfoController,
+    FetchPetsByNameController,
   ],
   providers: [
     RegisterOrgUseCase,
@@ -31,6 +34,7 @@ import { GetPetInfoUseCase } from '@/domain/main/application/use-cases/get-pet-i
     EditPetUseCase,
     DeletePetUseCase,
     GetPetInfoUseCase,
+    FetchPetsByNameUseCase,
   ],
 })
 export class HttpModule {}
