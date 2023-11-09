@@ -29,8 +29,8 @@ model Pet {
   name   String
   city   String
   about  String
-  age    Int
-  weight Float
+  age    String
+  weight String
   breed  String
   size   String
   orgId  String @map("org_id")

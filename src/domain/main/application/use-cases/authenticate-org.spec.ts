@@ -37,8 +37,6 @@ describe('Authenticate Org', () => {
       password: '123456',
     });
 
-    console.log(result.value);
-
     expect(result.isRight()).toBe(true);
     expect(result.value).toEqual({
       accessToken: expect.any(String),

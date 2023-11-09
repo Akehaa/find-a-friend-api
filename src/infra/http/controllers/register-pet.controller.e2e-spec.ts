@@ -40,8 +40,8 @@ describe('Register Pet (E2E)', () => {
         name: 'New pet',
         about: 'New about',
         city: 'New City',
-        age: 5,
-        weight: 19,
+        age: '5',
+        weight: '19',
         breed: 'Husky',
         size: 'big',
       });

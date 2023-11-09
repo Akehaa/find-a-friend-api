@@ -19,22 +19,22 @@ describe('Fetch Pets By Weight', () => {
   it('should be able to fetch pets by weight', async () => {
     await inMemoryPetsRepository.create(
       makePet({
-        weight: 8,
+        weight: '8',
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        weight: 15,
+        weight: '15',
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        weight: 8,
+        weight: '8',
       }),
     );
 
     const result = await sut.execute({
-      weight: 8,
+      weight: '8',
       page: 1,
     });
 

@@ -67,7 +67,7 @@ export class PrismaPetsRepository implements PetsRepository {
 
   async findManyByAge(
     { page }: PaginationParams,
-    age?: number,
+    age?: string,
   ): Promise<Pet[]> {
     const pets = await this.prisma.pet.findMany({
       where: {
@@ -81,7 +81,7 @@ export class PrismaPetsRepository implements PetsRepository {
 
   async findManyByWeight(
     { page }: PaginationParams,
-    weight?: number,
+    weight?: string,
   ): Promise<Pet[]> {
     const pets = await this.prisma.pet.findMany({
       where: {

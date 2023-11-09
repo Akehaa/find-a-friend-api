@@ -19,22 +19,22 @@ describe('Fetch Pets By Age', () => {
   it('should be able to fetch pets by age', async () => {
     await inMemoryPetsRepository.create(
       makePet({
-        age: 4,
+        age: '4',
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        age: 8,
+        age: '8',
       }),
     );
     await inMemoryPetsRepository.create(
       makePet({
-        age: 4,
+        age: '4',
       }),
     );
 
     const result = await sut.execute({
-      age: 4,
+      age: '4',
       page: 1,
     });
 

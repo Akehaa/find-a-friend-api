@@ -8,8 +8,8 @@ export interface PetProps {
   city: string;
   name: string;
   about: string;
-  age: number;
-  weight: number;
+  age: string;
+  weight: string;
   breed: string;
   size: string;
   attachments: PetAttachmentList;
@@ -48,7 +48,7 @@ export class Pet extends AggregateRoot<PetProps> {
     return this.props.age;
   }
 
-  set age(age: number) {
+  set age(age: string) {
     this.props.age = age;
   }
 
@@ -56,7 +56,7 @@ export class Pet extends AggregateRoot<PetProps> {
     return this.props.weight;
   }
 
-  set weight(weight: number) {
+  set weight(weight: string) {
     this.props.weight = weight;
   }
 

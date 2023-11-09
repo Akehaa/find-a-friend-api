@@ -20,12 +20,12 @@ export abstract class PetsRepository {
 
   abstract findManyByAge(
     params: PaginationParams,
-    age?: number,
+    age?: string,
   ): Promise<Pet[]>;
 
   abstract findManyByWeight(
     params: PaginationParams,
-    weight?: number,
+    weight?: string,
   ): Promise<Pet[]>;
 
   abstract findManyByBreed(

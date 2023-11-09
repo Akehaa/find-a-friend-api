@@ -37,8 +37,8 @@ Authorization: Bearer {{authToken}}
   "name": "New pet",
   "city": "new city",
   "about": "New about",
-  "age": 5,
-  "weight": 19,
+  "age": "5",
+  "weight": "19",
   "breed": "Husky",
   "size": "big"
 }

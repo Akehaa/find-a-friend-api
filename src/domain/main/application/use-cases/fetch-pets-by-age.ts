@@ -4,7 +4,7 @@ import { PetsRepository } from '../repositories/pets-repository';
 import { Injectable } from '@nestjs/common';
 
 interface FetchPetsByAgeUseCaseRequest {
-  age?: number;
+  age?: string;
   page: number;
 }
 

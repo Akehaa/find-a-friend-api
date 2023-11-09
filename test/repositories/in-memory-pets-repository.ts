@@ -43,7 +43,7 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pets;
   }
 
-  async findManyByAge({ page }: PaginationParams, age?: number) {
+  async findManyByAge({ page }: PaginationParams, age?: string) {
     const pets = this.items
       .filter((item) => item.age === age)
       .slice((page - 1) * 20, page * 20);
@@ -51,7 +51,7 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pets;
   }
 
-  async findManyByWeight({ page }: PaginationParams, weight?: number) {
+  async findManyByWeight({ page }: PaginationParams, weight?: string) {
     const pets = this.items
       .filter((item) => item.weight === weight)
       .slice((page - 1) * 20, page * 20);

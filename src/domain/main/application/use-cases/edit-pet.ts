@@ -15,8 +15,8 @@ interface EditPetUseCaseRequest {
   name: string;
   city: string;
   about: string;
-  age: number;
-  weight: number;
+  age: string;
+  weight: string;
   breed: string;
   size: string;
   attachmentsIds: string[];

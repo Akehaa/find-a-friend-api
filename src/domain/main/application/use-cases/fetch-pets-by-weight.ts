@@ -4,7 +4,7 @@ import { PetsRepository } from '../repositories/pets-repository';
 import { Injectable } from '@nestjs/common';
 
 interface FetchPetsByWeightUseCaseRequest {
-  weight?: number;
+  weight?: string;
   page: number;
 }
 

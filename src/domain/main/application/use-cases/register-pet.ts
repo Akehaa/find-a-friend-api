@@ -11,8 +11,8 @@ interface RegisterPetUseCaseRequest {
   city: string;
   name: string;
   about: string;
-  age: number;
-  weight: number;
+  age: string;
+  weight: string;
   breed: string;
   size: string;
   attachmentsIds: string[];

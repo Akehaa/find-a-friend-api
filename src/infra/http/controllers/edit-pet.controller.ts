@@ -16,8 +16,8 @@ const editPetBodySchema = z.object({
   name: z.string(),
   city: z.string(),
   about: z.string(),
-  age: z.number(),
-  weight: z.number(),
+  age: z.string(),
+  weight: z.string(),
   breed: z.string(),
   size: z.string(),
 });
