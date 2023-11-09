@@ -1,6 +1,7 @@
 import { AppModule } from '@/infra/app.module';
 import { DatabaseModule } from '@/infra/database/database.module';
 import { INestApplication } from '@nestjs/common';
+import { PrismaService } from '@/infra/database/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { Test } from '@nestjs/testing';
 import { OrgFactory } from 'test/factories/make-org';
@@ -9,6 +10,7 @@ import request from 'supertest';
 
 describe('Fetch Pets By Name (E2E)', () => {
   let app: INestApplication;
+  let prisma: PrismaService;
   let orgFactory: OrgFactory;
   let petFactory: PetFactory;
   let jwt: JwtService;
@@ -21,6 +23,7 @@ describe('Fetch Pets By Name (E2E)', () => {
 
     app = moduleRef.createNestApplication();
 
+    prisma = moduleRef.get(PrismaService);
     orgFactory = moduleRef.get(OrgFactory);
     petFactory = moduleRef.get(PetFactory);
     jwt = moduleRef.get(JwtService);
@@ -59,5 +62,13 @@ describe('Fetch Pets By Name (E2E)', () => {
         expect.objectContaining({ name: 'pet-02' }),
       ]),
     });
+
+    const petsOnDatabase = await prisma.pet.findMany({
+      where: {
+        name: 'pet-02',
+      },
+    });
+
+    expect(petsOnDatabase).toHaveLength(2);
   });
 });

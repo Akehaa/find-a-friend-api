@@ -1,6 +1,7 @@
 import { AppModule } from '@/infra/app.module';
 import { DatabaseModule } from '@/infra/database/database.module';
 import { INestApplication } from '@nestjs/common';
+import { PrismaService } from '@/infra/database/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { Test } from '@nestjs/testing';
 import { OrgFactory } from 'test/factories/make-org';
@@ -9,6 +10,7 @@ import request from 'supertest';
 
 describe('Fetch Pets By Weight (E2E)', () => {
   let app: INestApplication;
+  let prisma: PrismaService;
   let orgFactory: OrgFactory;
   let petFactory: PetFactory;
   let jwt: JwtService;
@@ -21,6 +23,7 @@ describe('Fetch Pets By Weight (E2E)', () => {
 
     app = moduleRef.createNestApplication();
 
+    prisma = moduleRef.get(PrismaService);
     orgFactory = moduleRef.get(OrgFactory);
     petFactory = moduleRef.get(PetFactory);
     jwt = moduleRef.get(JwtService);
@@ -57,5 +60,13 @@ describe('Fetch Pets By Weight (E2E)', () => {
     expect(response.body).toEqual({
       pets: expect.arrayContaining([expect.objectContaining({ weight: '6' })]),
     });
+
+    const petsOnDatabase = await prisma.pet.findMany({
+      where: {
+        weight: '6',
+      },
+    });
+
+    expect(petsOnDatabase).toHaveLength(2);
   });
 });

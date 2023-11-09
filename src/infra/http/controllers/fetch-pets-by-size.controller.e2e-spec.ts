@@ -1,12 +1,12 @@
 import { AppModule } from '@/infra/app.module';
 import { DatabaseModule } from '@/infra/database/database.module';
 import { INestApplication } from '@nestjs/common';
+import { PrismaService } from '@/infra/database/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { Test } from '@nestjs/testing';
 import { OrgFactory } from 'test/factories/make-org';
 import { PetFactory } from 'test/factories/make-pet';
 import request from 'supertest';
-import { PrismaService } from '@/infra/database/prisma/prisma.service';
 
 describe('Fetch Pets By Size (E2E)', () => {
   let app: INestApplication;
