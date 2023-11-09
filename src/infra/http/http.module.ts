@@ -20,7 +20,9 @@ import { FetchPetsByCityUseCase } from '@/domain/main/application/use-cases/fetc
 import { FetchPetsByAgeController } from './controllers/fetch-pets-by-age.controller';
 import { FetchPetsByAgeUseCase } from '@/domain/main/application/use-cases/fetch-pets-by-age';
 import { FetchPetsByWeightController } from './controllers/fetch-pets-by-weight.controller';
-import { FetchPetsByWeightUseCase } from '@/domain/main/application/use-cases/fetch-pets-by-weight';
+import { FetchPetsByWeightUseCase } from './../../domain/main/application/use-cases/fetch-pets-by-weight';
+import { FetchPetsByBreedController } from './controllers/fetch-pets-by-breed.controller';
+import { FetchPetsByBreedUseCase } from '@/domain/main/application/use-cases/fetch-pets-by-breed';
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -35,6 +37,7 @@ import { FetchPetsByWeightUseCase } from '@/domain/main/application/use-cases/fe
     FetchPetsByCityController,
     FetchPetsByAgeController,
     FetchPetsByWeightController,
+    FetchPetsByBreedController,
   ],
   providers: [
     RegisterOrgUseCase,
@@ -47,6 +50,7 @@ import { FetchPetsByWeightUseCase } from '@/domain/main/application/use-cases/fe
     FetchPetsByCityUseCase,
     FetchPetsByAgeUseCase,
     FetchPetsByWeightUseCase,
+    FetchPetsByBreedUseCase,
   ],
 })
 export class HttpModule {}
