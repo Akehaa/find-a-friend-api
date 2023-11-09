@@ -7,7 +7,7 @@ import { OrgFactory } from 'test/factories/make-org';
 import { PetFactory } from 'test/factories/make-pet';
 import request from 'supertest';
 
-describe('Fetch Pets By Name (E2E)', () => {
+describe('Fetch Pets By City (E2E)', () => {
   let app: INestApplication;
   let orgFactory: OrgFactory;
   let petFactory: PetFactory;
@@ -28,7 +28,7 @@ describe('Fetch Pets By Name (E2E)', () => {
     await app.init();
   });
 
-  test('[GET] /pets/name/:name', async () => {
+  test('[GET] /pets/city/:city', async () => {
     const org = await orgFactory.makePrismaOrg();
 
     const accessToken = jwt.sign({ sub: org.id.toString() });
@@ -36,27 +36,27 @@ describe('Fetch Pets By Name (E2E)', () => {
     await Promise.all([
       petFactory.makePrismaPet({
         orgId: org.id,
-        name: 'pet-01',
+        city: 'city-01',
       }),
       petFactory.makePrismaPet({
         orgId: org.id,
-        name: 'pet-02',
+        city: 'city-02',
       }),
       petFactory.makePrismaPet({
         orgId: org.id,
-        name: 'pet-02',
+        city: 'city-02',
       }),
     ]);
 
     const response = await request(app.getHttpServer())
-      .get('/pets/name/pet-02')
+      .get('/pets/city/city-02')
       .set('Authorization', `Bearer ${accessToken}`)
       .send();
 
     expect(response.statusCode).toBe(200);
     expect(response.body).toEqual({
       pets: expect.arrayContaining([
-        expect.objectContaining({ name: 'pet-02' }),
+        expect.objectContaining({ city: 'city-02' }),
       ]),
     });
   });
