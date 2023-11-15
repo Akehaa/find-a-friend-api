@@ -5,13 +5,13 @@ import { Attachment } from '../../enterprise/entities/attachment';
 import { AttachmentsRepository } from '../repositories/attachments-repository';
 import { Uploader } from '../storage/uploader';
 
-interface UploadAndCreateAttachmentRequest {
+interface UploadAndCreateAttachmentUseCaseRequest {
   fileName: string;
   fileType: string;
   body: Buffer;
 }
 
-type UploadAndCreateAttachmentResponse = Either<
+type UploadAndCreateAttachmentUseCaseResponse = Either<
   InvalidAttachmentTypeError,
   { attachment: Attachment }
 >;
@@ -27,7 +27,7 @@ export class UploadAndCreateAttachmentUseCase {
     fileName,
     fileType,
     body,
-  }: UploadAndCreateAttachmentRequest): Promise<UploadAndCreateAttachmentResponse> {
+  }: UploadAndCreateAttachmentUseCaseRequest): Promise<UploadAndCreateAttachmentUseCaseResponse> {
     if (!/^(image\/(jpeg|png))$/.test(fileType)) {
       return left(new InvalidAttachmentTypeError(fileType));
     }

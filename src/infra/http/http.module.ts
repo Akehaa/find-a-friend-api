@@ -25,9 +25,12 @@ import { FetchPetsByBreedController } from './controllers/fetch-pets-by-breed.co
 import { FetchPetsByBreedUseCase } from '@/domain/main/application/use-cases/fetch-pets-by-breed';
 import { FetchPetsBySizeController } from './controllers/fetch-pets-by-size.controller';
 import { FetchPetsBySizeUseCase } from '@/domain/main/application/use-cases/fetch-pets-by-size';
+import { UploadAttachmentController } from './controllers/upload-attachment.controller';
+import { UploadAndCreateAttachmentUseCase } from '@/domain/main/application/use-cases/upload-and-create-attachment';
+import { StorageModule } from '../storage/storage.module';
 
 @Module({
-  imports: [DatabaseModule, CryptographyModule],
+  imports: [DatabaseModule, CryptographyModule, StorageModule],
   controllers: [
     CreateAccountController,
     AuthenticateController,
@@ -41,6 +44,7 @@ import { FetchPetsBySizeUseCase } from '@/domain/main/application/use-cases/fetc
     FetchPetsByWeightController,
     FetchPetsByBreedController,
     FetchPetsBySizeController,
+    UploadAttachmentController,
   ],
   providers: [
     RegisterOrgUseCase,
@@ -55,6 +59,7 @@ import { FetchPetsBySizeUseCase } from '@/domain/main/application/use-cases/fetc
     FetchPetsByWeightUseCase,
     FetchPetsByBreedUseCase,
     FetchPetsBySizeUseCase,
+    UploadAndCreateAttachmentUseCase,
   ],
 })
 export class HttpModule {}
