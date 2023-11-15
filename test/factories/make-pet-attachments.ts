@@ -3,6 +3,8 @@ import {
   PetAttachment,
   PetAttachmentProps,
 } from '@/domain/main/enterprise/entities/pet-attachment';
+import { PrismaService } from '@/infra/database/prisma/prisma.service';
+import { Injectable } from '@nestjs/common';
 
 export function makePetAttachment(
   override: Partial<PetAttachmentProps> = {},
@@ -18,4 +20,26 @@ export function makePetAttachment(
   );
 
   return petAttachment;
+}
+
+@Injectable()
+export class PetAttachmentFactory {
+  constructor(private prisma: PrismaService) {}
+
+  async makePrismaPetAttachment(
+    data: Partial<PetAttachmentProps> = {},
+  ): Promise<PetAttachment> {
+    const petAttachment = makePetAttachment(data);
+
+    await this.prisma.attachment.update({
+      where: {
+        id: petAttachment.attachmentId.toString(),
+      },
+      data: {
+        petId: petAttachment.petId.toString(),
+      },
+    });
+
+    return petAttachment;
+  }
 }

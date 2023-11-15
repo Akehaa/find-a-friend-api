@@ -20,6 +20,7 @@ const editPetBodySchema = z.object({
   weight: z.string(),
   breed: z.string(),
   size: z.string(),
+  attachments: z.array(z.string().uuid()),
 });
 
 const bodyValidationPipe = new ZodValidationPipe(editPetBodySchema);
@@ -37,7 +38,7 @@ export class EditPetController {
     @CurrentUser() user: UserPayload,
     @Param('id') petId: string,
   ) {
-    const { name, city, about, age, weight, breed, size } = body;
+    const { name, city, about, age, weight, breed, size, attachments } = body;
     const orgId = user.sub;
 
     const result = await this.editPet.execute({
@@ -49,7 +50,7 @@ export class EditPetController {
       breed,
       size,
       orgId: orgId,
-      attachmentsIds: [],
+      attachmentsIds: attachments,
       petId,
     });
 
