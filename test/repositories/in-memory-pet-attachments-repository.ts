@@ -14,6 +14,18 @@ export class InMemoryPetAttachmentsRepository
     return petAttachments;
   }
 
+  async createMany(attachments: PetAttachment[]): Promise<void> {
+    this.items.push(...attachments);
+  }
+
+  async deleteMany(attachments: PetAttachment[]): Promise<void> {
+    const petAttachments = this.items.filter((item) => {
+      return !attachments.some((attachment) => attachment.equals(item));
+    });
+
+    this.items = petAttachments;
+  }
+
   async deleteManyByPetId(petId: string) {
     const petAttachments = this.items.filter(
       (item) => item.petId.toString() !== petId,

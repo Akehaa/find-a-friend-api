@@ -78,6 +78,8 @@ export class InMemoryPetsRepository implements PetsRepository {
   async create(pet: Pet) {
     this.items.push(pet);
 
+    await this.petAttachmentsRepository.createMany(pet.attachments.getItems());
+
     DomainEvents.dispatchEventsForAggregate(pet.id);
   }
 
@@ -85,6 +87,14 @@ export class InMemoryPetsRepository implements PetsRepository {
     const itemIndex = this.items.findIndex((item) => item.id === pet.id);
 
     this.items[itemIndex] = pet;
+
+    await this.petAttachmentsRepository.createMany(
+      pet.attachments.getNewItems(),
+    );
+
+    await this.petAttachmentsRepository.deleteMany(
+      pet.attachments.getRemovedItems(),
+    );
 
     DomainEvents.dispatchEventsForAggregate(pet.id);
   }

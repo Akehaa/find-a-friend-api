@@ -20,6 +20,7 @@ const registerPetBodySchema = z.object({
   weight: z.string(),
   breed: z.string(),
   size: z.string(),
+  attachments: z.array(z.string().uuid()),
 });
 
 const bodyValidationPipe = new ZodValidationPipe(registerPetBodySchema);
@@ -36,7 +37,7 @@ export class RegisterPetController {
     @Body(bodyValidationPipe) body: RegisterPetBodySchema,
     @CurrentUser() user: UserPayload,
   ) {
-    const { name, about, city, age, weight, breed, size } = body;
+    const { name, about, city, age, weight, breed, size, attachments } = body;
     const orgId = user.sub;
 
     const result = await this.registerPet.execute({
@@ -48,7 +49,7 @@ export class RegisterPetController {
       weight,
       breed,
       size,
-      attachmentsIds: [],
+      attachmentsIds: attachments,
     });
 
     if (result.isLeft()) {

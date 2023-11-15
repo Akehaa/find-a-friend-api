@@ -23,7 +23,7 @@ describe('Edit Pet', () => {
     );
   });
 
-  it('should be able to edit a question', async () => {
+  it('should be able to edit a pet', async () => {
     const newPet = makePet(
       {
         orgId: new UniqueEntityId('org-01'),
@@ -101,5 +101,53 @@ describe('Edit Pet', () => {
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
+  });
+
+  it('should sync new and removed attachment when editing a pet', async () => {
+    const newPet = makePet(
+      {
+        orgId: new UniqueEntityId('org-01'),
+      },
+      new UniqueEntityId('pet-1'),
+    );
+
+    await inMemoryPetsRepository.create(newPet);
+
+    inMemoryPetAttachmentsRepository.items.push(
+      makePetAttachment({
+        petId: newPet.id,
+        attachmentId: new UniqueEntityId('1'),
+      }),
+      makePetAttachment({
+        petId: newPet.id,
+        attachmentId: new UniqueEntityId('2'),
+      }),
+    );
+
+    const result = await sut.execute({
+      orgId: 'org-01',
+      petId: newPet.id.toValue(),
+      name: 'Test name',
+      city: 'Test city',
+      about: 'Test about',
+      age: '5',
+      weight: '10',
+      breed: 'Test breed',
+      size: 'big',
+      attachmentsIds: ['1', '3'],
+    });
+
+    expect(result.isRight()).toBe(true);
+    expect(inMemoryPetAttachmentsRepository.items).toHaveLength(2);
+    expect(inMemoryPetAttachmentsRepository.items).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          attachmentId: new UniqueEntityId('1'),
+        }),
+        expect.objectContaining({
+          attachmentId: new UniqueEntityId('3'),
+        }),
+      ]),
+    );
   });
 });

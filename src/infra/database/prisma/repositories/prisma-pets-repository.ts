@@ -4,10 +4,14 @@ import { PrismaService } from '../prisma.service';
 import { Pet } from '@/domain/main/enterprise/entities/pet';
 import { PrismaPetMapper } from '../mappers/prisma-pet-mapper';
 import { PaginationParams } from '@/core/repositories/pagination-params';
+import { PetAttachmentsRepository } from '@/domain/main/application/repositories/pet-attachments-repository';
 
 @Injectable()
 export class PrismaPetsRepository implements PetsRepository {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private petAttachmentsRepository: PetAttachmentsRepository,
+  ) {}
 
   async findById(id: string): Promise<Pet | null> {
     const pet = await this.prisma.pet.findUnique({
@@ -127,17 +131,25 @@ export class PrismaPetsRepository implements PetsRepository {
     await this.prisma.pet.create({
       data,
     });
+
+    await this.petAttachmentsRepository.createMany(pet.attachments.getItems());
   }
 
   async save(pet: Pet): Promise<void> {
     const data = PrismaPetMapper.toPrisma(pet);
 
-    await this.prisma.pet.update({
-      where: {
-        id: pet.id.toString(),
-      },
-      data,
-    });
+    await Promise.all([
+      this.prisma.pet.update({
+        where: {
+          id: pet.id.toString(),
+        },
+        data,
+      }),
+      this.petAttachmentsRepository.createMany(pet.attachments.getNewItems()),
+      this.petAttachmentsRepository.deleteMany(
+        pet.attachments.getRemovedItems(),
+      ),
+    ]);
   }
 
   async delete(pet: Pet): Promise<void> {

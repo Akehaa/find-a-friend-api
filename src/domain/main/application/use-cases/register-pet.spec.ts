@@ -40,4 +40,31 @@ describe('Register Pet', () => {
       expect.objectContaining({ attachmentId: new UniqueEntityId('2') }),
     ]);
   });
+
+  it('should persist attachments when registering a new pet', async () => {
+    const result = await sut.execute({
+      orgId: '1',
+      city: 'Test city',
+      name: 'Test name',
+      about: 'Test about',
+      age: '20',
+      weight: '5',
+      breed: 'Test breed',
+      size: 'Big',
+      attachmentsIds: ['1', '2'],
+    });
+
+    expect(result.isRight()).toBe(true);
+    expect(inMemoryPetAttachmentsRepository.items).toHaveLength(2);
+    expect(inMemoryPetAttachmentsRepository.items).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          attachmentId: new UniqueEntityId('1'),
+        }),
+        expect.objectContaining({
+          attachmentId: new UniqueEntityId('1'),
+        }),
+      ]),
+    );
+  });
 });
