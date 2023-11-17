@@ -1,13 +1,21 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Find a Friend, a pet adoption API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This API was specifically crafted to connect individuals in search of pets with reputable pet adoption organizations. It provides a platform for organizations to register and validate their identity using JWT. Once authenticated, these organizations can upload information about pets available for adoption, view their own profiles, manage the listed pets, and carry out various account-related tasks. For those seeking a pet, the API offers the ability to search for pets using filters, view results in paginated format, and access detailed information about each pet, including the contact details of the respective organization.
 
-# App
+The API follows a Test-Driven Development (TDD) plus Domain-Driven Design (DDD) approach. To ensure reliability and accuracy, it is equipped with a comprehensive set of end-to-end and unit tests.
 
-pet adoption app
+# Technologies
+
+<div style="display: inline_block"><br>
+<img align="center" alt="nodejs" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+<img align="center" alt="TypeScript" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+<img align="center" alt="nestjs" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg">
+<img align="center" alt="prisma" height="60" width="80" src="https://vitest.dev/logo.svg">
+<img align="center" alt="postgresql" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">
+<img align="center" alt="docker" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg">
+<img align="center" alt="prisma" height="60" width="80" src="https://img.icons8.com/?size=256&id=YKKmRFS8Utmm&format=png">
+ 
+</div>
 
 ## Functional Requirements
 - [x] It should be able to register a pet, with the following data:
@@ -31,7 +39,7 @@ pet adoption app
   - address;
   - whatsapp;
   - password.
-- [x] It should be able to login as an ORG;
+- [x] It should be able to login as an ORG.
 
 
 ## Business Requirements
@@ -40,9 +48,9 @@ pet adoption app
 - [x] A pet must be linked to an ORG;
 - [x] All filters, excluding city and/or ORG, must be optionals;
 - [x] For an ORG to access the application as admin, it must be logged;
-- [x] An ORG should not be able to register with a email that already exists.
+- [x] An ORG should not be able to register with a email that already exists;
 - [x] An ORG should only edit pets that it created;
-- [x] An ORG should only delete pets that it created;
+- [x] An ORG should only delete pets that it created.
 
 
 ## Non-functional Requirements
